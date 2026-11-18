@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TTJ - Reports</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./ASSETS/CSS/style.css" />
+</head>
+<body>
+    <aside class="sidebar">
+      <div class="sidebar-logo"><h2>TTJ Loyalty Admin</h2></div>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="nav-icon material-icons">dashboard</span><span>Dashboard</span></a></li>
+          <li class="nav-item"><a href="users.html" class="nav-link"><span class="nav-icon material-icons">people</span><span>User Management</span></a></li>
+          <li class="nav-item"><a href="transactions.html" class="nav-link"><span class="nav-icon material-icons">receipt_long</span><span>All Transactions</span></a></li>
+          <li class="nav-item"><a href="points.html" class="nav-link"><span class="nav-icon material-icons">star_rate</span><span>Points Management</span></a></li>
+          <li class="nav-item"><a href="tiers.html" class="nav-link"><span class="nav-icon material-icons">emoji_events</span><span>Tier Management</span></a></li>
+          <li class="nav-item"><a href="rules.html" class="nav-link"><span class="nav-icon material-icons">settings</span><span>Rules Engine</span></a></li>
+          <li class="nav-item"><a href="goldsavings.html" class="nav-link "><span class="nav-icon material-icons">account_balance_wallet</span><span>Gold Wallet Scheme</span></a></li>
+          <li class="nav-item"><a href="schemes.html" class="nav-link"><span class="nav-icon material-icons">event_note</span><span>Schemes</span></a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link"><span class="nav-icon material-icons">card_giftcard</span><span>Promotions</span></a></li>
+          <li class="nav-item"><a href="reports.html" class="nav-link active"><span class="nav-icon material-icons">trending_up</span><span>Reports & Analytics</span></a></li>
+          <li class="nav-item"><a href="notifications.html" class="nav-link"><span class="nav-icon material-icons">notifications</span><span>Notifications</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="top-bar container-constrain">
+        <h1>Reports & Analytics</h1>
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <span id="adminName">Admin</span>
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <section class="content-section container-constrain">
+        <div class="section-header">
+          <h2>Overview</h2>
+          <button class="btn btn-primary">Export Report</button>
+        </div>
+
+        <div class="stats-grid" style="margin-top:12px; max-width:100%;">
+          <div class="stat-card"><h3>Total Points Liability</h3><div class="stat-value">₹4,23,560</div></div>
+          <div class="stat-card"><h3>Points Earned (Month)</h3><div class="stat-value">₹2,45,890</div></div>
+          <div class="stat-card"><h3>Points Redeemed (Month)</h3><div class="stat-value">₹1,89,340</div></div>
+          <div class="stat-card"><h3>Expired Points (Month)</h3><div class="stat-value">₹34,220</div></div>
+        </div>
+
+        <div class="section-header" style="margin-top:24px;"><h2>Generate Custom Report</h2></div>
+        <div class="form-grid" style="margin-top:12px;">
+          <div><label>Report Type</label><select class="form-control"><option>Points Summary</option><option>Customer Activity</option><option>Tier Analysis</option></select></div>
+          <div><label>Format</label><select class="form-control"><option>Excel (XLSX)</option><option>PDF</option><option>CSV</option></select></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:12px;">Generate Report</button>
+
+        <div class="section-header" style="margin-top:30px;"><h2>Recent Reports</h2></div>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Report Name</th><th>Generated Date</th><th>Type</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>Monthly Points Summary - October 2025</td><td>Nov 01, 2025</td><td>Points Summary</td><td><span class="badge badge-gold">Ready</span></td><td><button class="btn btn-primary" style="padding:6px 12px">Download</button></td></tr>
+              <tr><td>Q3 Customer Activity Report</td><td>Oct 15, 2025</td><td>Customer Activity</td><td><span class="badge badge-gold">Ready</span></td><td><button class="btn btn-primary" style="padding:6px 12px">Download</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="./ASSETS/JS/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TTJ - Gold Wallet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./ASSETS/CSS/style.css" />
+</head>
+<body>
+    <aside class="sidebar">
+      <div class="sidebar-logo"><h2>TTJ Loyalty Admin</h2></div>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="nav-icon material-icons">dashboard</span><span>Dashboard</span></a></li>
+          <li class="nav-item"><a href="users.html" class="nav-link"><span class="nav-icon material-icons">people</span><span>User Management</span></a></li>
+          <li class="nav-item"><a href="transactions.html" class="nav-link"><span class="nav-icon material-icons">receipt_long</span><span>All Transactions</span></a></li>
+          <li class="nav-item"><a href="points.html" class="nav-link"><span class="nav-icon material-icons">star_rate</span><span>Points Management</span></a></li>
+          <li class="nav-item"><a href="tiers.html" class="nav-link"><span class="nav-icon material-icons">emoji_events</span><span>Tier Management</span></a></li>
+          <li class="nav-item"><a href="rules.html" class="nav-link"><span class="nav-icon material-icons">settings</span><span>Rules Engine</span></a></li>
+          <li class="nav-item"><a href="goldsavings.html" class="nav-link active"><span class="nav-icon material-icons">account_balance_wallet</span><span>Gold Wallet Scheme</span></a></li>
+          <li class="nav-item"><a href="schemes.html" class="nav-link"><span class="nav-icon material-icons">event_note</span><span>Schemes</span></a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link"><span class="nav-icon material-icons">card_giftcard</span><span>Promotions</span></a></li>
+          <li class="nav-item"><a href="reports.html" class="nav-link"><span class="nav-icon material-icons">trending_up</span><span>Reports & Analytics</span></a></li>
+          <li class="nav-item"><a href="notifications.html" class="nav-link"><span class="nav-icon material-icons">notifications</span><span>Notifications</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="top-bar container-constrain">
+        <h1>Gold Wallet Management</h1>
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <span id="adminName">Admin</span>
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <section class="content-section container-constrain">
+        <div class="section-header" style="background: #fff9e6; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba;">
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <span class="material-icons" style="color: #d4af37;">monetization_on</span>
+            <div>
+              <h3 style="margin:0; color: #856404;">Live Buy Rate (22k)</h3>
+              <span style="font-size: 20px; font-weight: 800;">₹6,850 / gram</span>
+            </div>
+          </div>
+          <button class="btn btn-primary" style="background: #d4af37; border: none;">Update Rate</button>
+        </div>
+
+        <div class="stats-grid" style="margin-top:20px; max-width:100%;">
+          <div class="stat-card">
+            <h3>Total Gold Liability</h3>
+            <div class="stat-value" style="color:#d4af37;">1,240.5 g</div>
+            <div class="stat-change">Customer holdings</div>
+          </div>
+          <div class="stat-card">
+            <h3>Wallet Value (INR)</h3>
+            <div class="stat-value">₹84,97,425</div>
+            <div class="stat-change">@ Current Rate</div>
+          </div>
+          <div class="stat-card">
+            <h3>Active Wallets</h3>
+            <div class="stat-value">412</div>
+            <div class="stat-change">Users with balance > 0</div>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 24px;">
+          <h2>User Wallet Balances</h2>
+          <button class="btn btn-primary">Manual Credit / Debit</button>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Wallet ID</th>
+                <th>Customer</th>
+                <th>Mobile</th>
+                <th>Gold Balance (g)</th>
+                <th>Avg. Buy Rate</th>
+                <th>Last Activity</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GW-1001</td>
+                <td>Priya Sharma</td>
+                <td>98765 43210</td>
+                <td><strong style="font-size:16px; color:#d4af37;">12.50 g</strong></td>
+                <td>₹6,200</td>
+                <td>Nov 19, 2025</td>
+                <td><button class="btn btn-primary" style="padding:6px 12px">History</button></td>
+              </tr>
+              <tr>
+                <td>GW-1002</td>
+                <td>Rajesh Kumar</td>
+                <td>98123 45678</td>
+                <td><strong style="font-size:16px; color:#d4af37;">5.20 g</strong></td>
+                <td>₹6,550</td>
+                <td>Nov 18, 2025</td>
+                <td><button class="btn btn-primary" style="padding:6px 12px">History</button></td>
+              </tr>
+              <tr>
+                <td>GW-1003</td>
+                <td>Anitha Reddy</td>
+                <td>99887 76655</td>
+                <td><strong style="font-size:16px; color:#d4af37;">0.00 g</strong></td>
+                <td>-</td>
+                <td>Oct 10, 2025</td>
+                <td><button class="btn btn-primary" style="padding:6px 12px">History</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="./ASSETS/JS/script.js"></script>
+</body>
+</html>

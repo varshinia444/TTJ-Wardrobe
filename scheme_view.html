@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TTJ - Scheme Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./ASSETS/CSS/style.css" />
+</head>
+<body>
+    <aside class="sidebar">
+      <div class="sidebar-logo"><h2>TTJ Loyalty Admin</h2></div>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="nav-icon material-icons">dashboard</span><span>Dashboard</span></a></li>
+          <li class="nav-item"><a href="goldenharvest.html" class="nav-link active"><span class="nav-icon material-icons">account_balance_wallet</span><span>Gold Wallet Scheme</span></a></li>
+          </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="top-bar container-constrain">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <a href="goldenharvest.html" style="color:var(--muted); text-decoration:none; display:flex; align-items:center;">
+                <span class="material-icons">arrow_back</span> Back
+            </a>
+            <h1 style="margin:0;">Scheme Details: 330-Day Gold Saver</h1>
+        </div>
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <span id="adminName">Admin</span>
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <section class="content-section container-constrain">
+        <div class="section-header">
+            <h2>Scheme Rules & Configuration</h2>
+            <button class="btn btn-primary">Edit Rules</button>
+        </div>
+        <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr); margin:0;">
+            <div style="padding:10px; background:#fafafa; border-radius:8px;">
+                <label style="font-size:12px; color:#666;">Duration</label>
+                <div style="font-weight:700; font-size:16px;">330 Days</div>
+            </div>
+            <div style="padding:10px; background:#fafafa; border-radius:8px;">
+                <label style="font-size:12px; color:#666;">Min. Amount</label>
+                <div style="font-weight:700; font-size:16px;">₹500 / month</div>
+            </div>
+            <div style="padding:10px; background:#fafafa; border-radius:8px;">
+                <label style="font-size:12px; color:#666;">Pre-closure Penalty</label>
+                <div style="font-weight:700; font-size:16px; color:#dc3545;">2.0%</div>
+            </div>
+            <div style="padding:10px; background:#fafafa; border-radius:8px;">
+                <label style="font-size:12px; color:#666;">Bonus Benefit</label>
+                <div style="font-weight:700; font-size:16px; color:#28a745;">No Making Charges</div>
+            </div>
+        </div>
+        <div style="margin-top:15px; font-size:14px; color:#555; line-height:1.5;">
+            <strong>Description:</strong> This is the primary gold accumulation wallet. Users can deposit variable amounts daily/monthly. The gold rate is locked at the time of payment. Redemption is valid only after 330 days from the first installment.
+        </div>
+      </section>
+
+      <section class="content-section container-constrain">
+        <div class="section-header">
+          <h2>Enrolled Users (312)</h2>
+          <div>
+              <input type="text" placeholder="Search in this scheme..." style="padding:8px; border-radius:6px; border:1px solid #ddd;">
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>User Name</th>
+                <th>Join Date</th>
+                <th>Maturity Date</th>
+                <th>Total Saved</th>
+                <th>Gold Balance</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Priya Sharma</td>
+                <td>Jan 01, 2025</td>
+                <td>Nov 27, 2025</td>
+                <td>₹50,000</td>
+                <td style="color:#d4af37; font-weight:bold;">7.45 g</td>
+                <td><span class="badge badge-gold">Active</span></td>
+                <td><button class="btn btn-primary" style="padding:4px 10px;">Details</button></td>
+              </tr>
+              <tr>
+                <td>Rajesh Kumar</td>
+                <td>Mar 10, 2025</td>
+                <td>Feb 03, 2026</td>
+                <td>₹20,000</td>
+                <td style="color:#d4af37; font-weight:bold;">2.91 g</td>
+                <td><span class="badge badge-gold">Active</span></td>
+                <td><button class="btn btn-primary" style="padding:4px 10px;">Details</button></td>
+              </tr>
+               <tr>
+                <td>Amit Patel</td>
+                <td>Dec 15, 2024</td>
+                <td>Nov 10, 2025</td>
+                <td>₹1,50,000</td>
+                <td style="color:#d4af37; font-weight:bold;">22.10 g</td>
+                <td><span class="badge badge-silver">Maturing Soon</span></td>
+                <td><button class="btn btn-primary" style="padding:4px 10px;">Details</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="./ASSETS/JS/script.js"></script>
+</body>
+</html>

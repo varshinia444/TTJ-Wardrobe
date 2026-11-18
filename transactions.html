@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TTJ - All Transactions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./ASSETS/CSS/style.css" />
+</head>
+<body>
+    <aside class="sidebar">
+      <div class="sidebar-logo"><h2>TTJ Loyalty Admin</h2></div>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="nav-icon material-icons">dashboard</span><span>Dashboard</span></a></li>
+          <li class="nav-item"><a href="users.html" class="nav-link"><span class="nav-icon material-icons">people</span><span>User Management</span></a></li>
+          <li class="nav-item"><a href="transactions.html" class="nav-link active "><span class="nav-icon material-icons">receipt_long</span><span>All Transactions</span></a></li>
+          <li class="nav-item"><a href="points.html" class="nav-link"><span class="nav-icon material-icons">star_rate</span><span>Points Management</span></a></li>
+          <li class="nav-item"><a href="tiers.html" class="nav-link"><span class="nav-icon material-icons">emoji_events</span><span>Tier Management</span></a></li>
+          <li class="nav-item"><a href="rules.html" class="nav-link"><span class="nav-icon material-icons">settings</span><span>Rules Engine</span></a></li>
+          <li class="nav-item"><a href="goldsavings.html" class="nav-link "><span class="nav-icon material-icons">account_balance_wallet</span><span>Gold Wallet Scheme</span></a></li>
+          <li class="nav-item"><a href="schemes.html" class="nav-link"><span class="nav-icon material-icons">event_note</span><span>Schemes</span></a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link"><span class="nav-icon material-icons">card_giftcard</span><span>Promotions</span></a></li>
+          <li class="nav-item"><a href="reports.html" class="nav-link"><span class="nav-icon material-icons">trending_up</span><span>Reports & Analytics</span></a></li>
+          <li class="nav-item"><a href="notifications.html" class="nav-link"><span class="nav-icon material-icons">notifications</span><span>Notifications</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+
+    <main class="main-content">
+      <div class="top-bar container-constrain">
+        <h1>All App Transactions</h1>
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <span id="adminName">Admin</span>
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <section class="content-section container-constrain">
+        <div class="section-header">
+          <h2>Master Transaction Log</h2>
+          <button class="btn btn-primary">Export CSV</button>
+        </div>
+
+        <div class="form-grid" style="margin-top:18px; align-items:end; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+          <div>
+             <label>Search Transaction / User</label>
+             <input type="text" class="form-control" placeholder="Txn ID, Name, Mobile">
+          </div>
+          <div>
+             <label>Transaction Type</label>
+             <select class="form-control">
+                <option value="all">All Types</option>
+                <option value="gold">Gold Wallet Deposit</option>
+                <option value="points_earned">Points Earned</option>
+                <option value="points_redeem">Points Redeemed</option>
+             </select>
+          </div>
+          <div>
+             <label>Date Range</label>
+             <input type="date" class="form-control">
+          </div>
+          <div>
+             <label>Status</label>
+             <select class="form-control">
+                <option>All</option>
+                <option>Success</option>
+                <option>Pending</option>
+                <option>Failed</option>
+             </select>
+          </div>
+          <div>
+             <button class="btn btn-primary" style="width:100%;">Apply Filters</button>
+          </div>
+        </div>
+
+        <div class="table-container" style="margin-top:24px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Txn ID</th>
+                <th>Date & Time</th>
+                <th>User Details</th>
+                <th>Category</th>
+                <th>Amount / Value</th>
+                <th>Details</th>
+                <th>Payment Mode</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-family:monospace; color:#666;">#GW-8922</td>
+                <td>Nov 19, 10:45 AM</td>
+                <td>
+                  <strong>Priya Sharma</strong><br>
+                  <span style="font-size:11px; color:#888;">+91 98765 43210</span>
+                </td>
+                <td><span class="badge" style="background:#e3f2fd; color:#0d47a1;">Gold Deposit</span></td>
+                <td style="font-weight:700;">₹5,000</td>
+                <td>Booked <strong>0.729g</strong> @ ₹6,850</td>
+                <td>UPI / GPay</td>
+                <td><span class="badge badge-gold">Success</span></td>
+              </tr>
+
+              <tr>
+                <td style="font-family:monospace; color:#666;">#PT-4401</td>
+                <td>Nov 19, 09:15 AM</td>
+                <td>
+                  <strong>Rajesh Kumar</strong><br>
+                  <span style="font-size:11px; color:#888;">+91 98123 45678</span>
+                </td>
+                <td><span class="badge" style="background:#e8f5e9; color:#1b5e20;">Points Earned</span></td>
+                <td style="font-weight:700; color:#28a745;">+250 Pts</td>
+                <td>Purchase Value: ₹25,000</td>
+                <td>POS / Bill</td>
+                <td><span class="badge badge-gold">Credited</span></td>
+              </tr>
+
+              <tr>
+                <td style="font-family:monospace; color:#666;">#RD-1029</td>
+                <td>Nov 18, 06:30 PM</td>
+                <td>
+                  <strong>Anitha Reddy</strong><br>
+                  <span style="font-size:11px; color:#888;">+91 99887 76655</span>
+                </td>
+                <td><span class="badge" style="background:#fff3cd; color:#856404;">Redemption</span></td>
+                <td style="font-weight:700; color:#dc3545;">-500 Pts</td>
+                <td>Discount Value: ₹500</td>
+                <td>In-Store</td>
+                <td><span class="badge badge-gold">Completed</span></td>
+              </tr>
+
+              <tr>
+                <td style="font-family:monospace; color:#666;">#GW-8921</td>
+                <td>Nov 18, 02:10 PM</td>
+                <td>
+                  <strong>Karthik S</strong><br>
+                  <span style="font-size:11px; color:#888;">+91 90000 11111</span>
+                </td>
+                <td><span class="badge" style="background:#e3f2fd; color:#0d47a1;">Gold Deposit</span></td>
+                <td style="font-weight:700;">₹2,000</td>
+                <td>Booked <strong>0.294g</strong> @ ₹6,800</td>
+                <td>Credit Card</td>
+                <td><span class="badge badge-gold">Success</span></td>
+              </tr>
+
+              <tr>
+                <td style="font-family:monospace; color:#666;">#GW-8920</td>
+                <td>Nov 18, 01:45 PM</td>
+                <td>
+                  <strong>Meera Nair</strong><br>
+                  <span style="font-size:11px; color:#888;">+91 88776 65544</span>
+                </td>
+                <td><span class="badge" style="background:#e3f2fd; color:#0d47a1;">Gold Deposit</span></td>
+                <td style="font-weight:700;">₹10,000</td>
+                <td>Bank Timeout</td>
+                <td>Net Banking</td>
+                <td><span class="badge" style="background:#f8d7da; color:#721c24;">Failed</span></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        
+        <div style="margin-top:20px; display:flex; justify-content:space-between; align-items:center;">
+            <span style="color:#666; font-size:13px;">Showing 1-5 of 1,248 transactions</span>
+            <div style="display:flex; gap:8px;">
+                <button class="btn" style="padding:6px 12px; background:#eee;">Previous</button>
+                <button class="btn btn-primary" style="padding:6px 12px;">Next</button>
+            </div>
+        </div>
+
+      </section>
+    </main>
+    <script src="./ASSETS/JS/script.js"></script>
+</body>
+</html>

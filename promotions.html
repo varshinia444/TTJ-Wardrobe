@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TTJ - Promotions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./ASSETS/CSS/style.css" />
+</head>
+<body>
+    <aside class="sidebar">
+      <div class="sidebar-logo"><h2>TTJ Loyalty Admin</h2></div>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="nav-icon material-icons">dashboard</span><span>Dashboard</span></a></li>
+          <li class="nav-item"><a href="users.html" class="nav-link"><span class="nav-icon material-icons">people</span><span>User Management</span></a></li>
+          <li class="nav-item"><a href="transactions.html" class="nav-link"><span class="nav-icon material-icons">receipt_long</span><span>All Transactions</span></a></li>
+          <li class="nav-item"><a href="points.html" class="nav-link"><span class="nav-icon material-icons">star_rate</span><span>Points Management</span></a></li>
+          <li class="nav-item"><a href="tiers.html" class="nav-link"><span class="nav-icon material-icons">emoji_events</span><span>Tier Management</span></a></li>
+          <li class="nav-item"><a href="rules.html" class="nav-link"><span class="nav-icon material-icons">settings</span><span>Rules Engine</span></a></li>
+          <li class="nav-item"><a href="goldsavings.html" class="nav-link "><span class="nav-icon material-icons">account_balance_wallet</span><span>Gold Wallet Scheme</span></a></li>
+          <li class="nav-item"><a href="schemes.html" class="nav-link"><span class="nav-icon material-icons">event_note</span><span>Schemes</span></a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link active"><span class="nav-icon material-icons">card_giftcard</span><span>Promotions</span></a></li>
+          <li class="nav-item"><a href="reports.html" class="nav-link"><span class="nav-icon material-icons">trending_up</span><span>Reports & Analytics</span></a></li>
+          <li class="nav-item"><a href="notifications.html" class="nav-link"><span class="nav-icon material-icons">notifications</span><span>Notifications</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="top-bar container-constrain">
+        <h1>Promotions & Campaigns</h1>
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <span id="adminName">Admin</span>
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <section class="content-section container-constrain">
+        <div class="section-header">
+          <h2>Active Campaigns</h2>
+          <button class="btn btn-primary">Create New Promotion</button>
+        </div>
+
+        <div class="table-container" style="margin-top:12px;">
+          <table>
+            <thead>
+              <tr><th>Campaign Name</th><th>Type</th><th>Start Date</th><th>End Date</th><th>Bonus</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Diwali Festive Offer</td><td>Seasonal</td><td>Oct 20, 2025</td><td>Nov 15, 2025</td><td>2x Points</td><td><span class="badge badge-gold">Active</span></td><td><button class="btn btn-primary" style="padding:6px 12px">Edit</button></td>
+              </tr>
+              <tr>
+                <td>New Year Special</td><td>Festive</td><td>Dec 25, 2025</td><td>Jan 05, 2026</td><td>3x Points</td><td><span class="badge badge-silver">Scheduled</span></td><td><button class="btn btn-primary" style="padding:6px 12px">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-header" style="margin-top:30px;"><h2>Create New Promotion</h2></div>
+        <div class="form-grid" style="margin-top:12px;">
+          <div><label>Campaign Name</label><input type="text" class="form-control" placeholder="Enter campaign name"></div>
+          <div>
+            <label>Campaign Type</label>
+            <select class="form-control"><option>Select type</option><option>Festive</option><option>Seasonal</option><option>Flash Sale</option></select>
+          </div>
+          <div><label>Start Date</label><input type="date" class="form-control"></div>
+          <div><label>End Date</label><input type="date" class="form-control"></div>
+          <div><label>Points Multiplier</label><input type="number" class="form-control" placeholder="e.g. 2" step="0.1"></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:12px;">Create Campaign</button>
+      </section>
+    </main>
+    <script src="./ASSETS/JS/script.js"></script>
+</body>
+</html>

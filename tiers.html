@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TTJ - Tier Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./ASSETS/CSS/style.css" />
+</head>
+<body>
+    <aside class="sidebar">
+      <div class="sidebar-logo"><h2>TTJ Loyalty Admin</h2></div>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="nav-icon material-icons">dashboard</span><span>Dashboard</span></a></li>
+          <li class="nav-item"><a href="users.html" class="nav-link"><span class="nav-icon material-icons">people</span><span>User Management</span></a></li>
+          <li class="nav-item"><a href="transactions.html" class="nav-link"><span class="nav-icon material-icons">receipt_long</span><span>All Transactions</span></a></li>
+          <li class="nav-item"><a href="points.html" class="nav-link"><span class="nav-icon material-icons">star_rate</span><span>Points Management</span></a></li>
+          <li class="nav-item"><a href="tiers.html" class="nav-link active"><span class="nav-icon material-icons">emoji_events</span><span>Tier Management</span></a></li>
+          <li class="nav-item"><a href="rules.html" class="nav-link"><span class="nav-icon material-icons">settings</span><span>Rules Engine</span></a></li>
+         <li class="nav-item"><a href="goldsavings.html" class="nav-link "><span class="nav-icon material-icons">account_balance_wallet</span><span>Gold Wallet Scheme</span></a></li>
+          <li class="nav-item"><a href="schemes.html" class="nav-link"><span class="nav-icon material-icons">event_note</span><span>Schemes</span></a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link"><span class="nav-icon material-icons">card_giftcard</span><span>Promotions</span></a></li>
+          <li class="nav-item"><a href="reports.html" class="nav-link"><span class="nav-icon material-icons">trending_up</span><span>Reports & Analytics</span></a></li>
+          <li class="nav-item"><a href="notifications.html" class="nav-link"><span class="nav-icon material-icons">notifications</span><span>Notifications</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="top-bar container-constrain">
+        <h1>Tier Management</h1>
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <span id="adminName">Admin</span>
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <section class="content-section container-constrain">
+        <div class="section-header">
+          <h2>Current Tiers</h2>
+        </div>
+        <div class="stats-grid" style="margin-top:8px; max-width:100%;">
+          <div class="stat-card">
+            <h3>Silver Members</h3><div class="stat-value">1,847</div><div class="stat-change">Base tier - 1x points</div>
+          </div>
+          <div class="stat-card">
+            <h3>Gold Members</h3><div class="stat-value">782</div><div class="stat-change">Spend &gt; ₹50,000 - 1.25x points</div>
+          </div>
+          <div class="stat-card">
+            <h3>Platinum Members</h3><div class="stat-value">218</div><div class="stat-change">Spend &gt; ₹1,50,000 - 1.5x points</div>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top:24px;">
+          <h2>Tier Configuration</h2>
+        </div>
+        <div class="form-grid" style="margin-top:12px;">
+          <div><label>Gold Tier Threshold</label><input type="number" class="form-control" value="50000" placeholder="Annual spend"></div>
+          <div><label>Gold Point Multiplier</label><input type="number" class="form-control" value="1.25" step="0.05"></div>
+          <div><label>Platinum Tier Threshold</label><input type="number" class="form-control" value="150000" placeholder="Annual spend"></div>
+          <div><label>Platinum Point Multiplier</label><input type="number" class="form-control" value="1.5" step="0.05"></div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:14px;">Update Tier Settings</button>
+      </section>
+    </main>
+    <script src="./ASSETS/JS/script.js"></script>
+</body>
+</html>

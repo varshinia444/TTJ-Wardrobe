@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TTJ - Schemes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./ASSETS/CSS/style.css" />
+</head>
+<body>
+    <aside class="sidebar">
+      <div class="sidebar-logo"><h2>TTJ Loyalty Admin</h2></div>
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="nav-icon material-icons">dashboard</span><span>Dashboard</span></a></li>
+          <li class="nav-item"><a href="users.html" class="nav-link "><span class="nav-icon material-icons">people</span><span>User Management</span></a></li>
+          <li class="nav-item"><a href="transactions.html" class="nav-link"><span class="nav-icon material-icons">receipt_long</span><span>All Transactions</span></a></li>
+          <li class="nav-item"><a href="points.html" class="nav-link"><span class="nav-icon material-icons">star_rate</span><span>Points Management</span></a></li>
+          <li class="nav-item"><a href="tiers.html" class="nav-link"><span class="nav-icon material-icons">emoji_events</span><span>Tier Management</span></a></li>
+          <li class="nav-item"><a href="rules.html" class="nav-link"><span class="nav-icon material-icons">settings</span><span>Rules Engine</span></a></li>
+         <li class="nav-item"><a href="goldsavings.html" class="nav-link "><span class="nav-icon material-icons">account_balance_wallet</span><span>Gold Wallet Scheme</span></a></li>
+          <li class="nav-item"><a href="schemes.html" class="nav-link active"><span class="nav-icon material-icons">event_note</span><span>Schemes</span></a></li>
+          <li class="nav-item"><a href="promotions.html" class="nav-link"><span class="nav-icon material-icons">card_giftcard</span><span>Promotions</span></a></li>
+          <li class="nav-item"><a href="reports.html" class="nav-link"><span class="nav-icon material-icons">trending_up</span><span>Reports & Analytics</span></a></li>
+          <li class="nav-item"><a href="notifications.html" class="nav-link"><span class="nav-icon material-icons">notifications</span><span>Notifications</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="top-bar container-constrain">
+        <h1>Scheme Management</h1>
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <span id="adminName">Admin</span>
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <section class="content-section container-constrain">
+        
+        <div class="section-header">
+          <h2>Available Plans</h2>
+          <button class="btn btn-primary">Add New Plan</button>
+        </div>
+
+        <div class="stats-grid" style="margin-top:12px; max-width:100%; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          
+          <div class="stat-card" style="border-left: 6px solid #28a745;">
+            <div style="display:flex; justify-content:space-between;">
+                <h3>330-Day Gold Saver</h3>
+                <span class="badge badge-gold">Active</span>
+            </div>
+            <div style="margin: 10px 0; font-size: 14px; color: #555;">
+                <p><strong>Duration:</strong> 330 Days</p>
+                <p><strong>Benefit:</strong> No Making Charges</p>
+                <p><strong>Penalty:</strong> 2% on pre-closure</p>
+            </div>
+            <div class="stat-value" style="font-size: 18px;">312 Enrolled</div>
+            <div style="margin-top:10px;">
+                <button class="btn btn-primary" style="font-size:12px; padding:6px 12px;">Edit Rules</button>
+            </div>
+          </div>
+
+          <div class="stat-card" style="border-left: 6px solid #6327af;">
+            <div style="display:flex; justify-content:space-between;">
+                <h3>11-Month Fixed Plan</h3>
+                <span class="badge badge-silver">Legacy</span>
+            </div>
+             <div style="margin: 10px 0; font-size: 14px; color: #555;">
+                <p><strong>Duration:</strong> 11 Months</p>
+                <p><strong>Benefit:</strong> 50% off Wastage</p>
+                <p><strong>Penalty:</strong> 5% on pre-closure</p>
+            </div>
+            <div class="stat-value" style="font-size: 18px;">45 Enrolled</div>
+            <div style="margin-top:10px;">
+                <button class="btn btn-primary" style="font-size:12px; padding:6px 12px;">Edit Rules</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 30px;">
+          <h2>Scheme Enrollments</h2>
+        </div>
+
+        <div class="form-grid" style="margin-top:12px; margin-bottom:12px;">
+          <div><input type="text" class="form-control" placeholder="Search User..."></div>
+          <div>
+              <select class="form-control">
+                  <option>All Schemes</option>
+                  <option>330-Day Gold Saver</option>
+                  <option>11-Month Fixed</option>
+              </select>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>User Name</th>
+                <th>Scheme Name</th>
+                <th>Start Date</th>
+                <th>Maturity Date</th>
+                <th>Total Paid</th>
+                <th>Installments</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Priya Sharma</td>
+                <td>330-Day Gold Saver</td>
+                <td>Jan 01, 2025</td>
+                <td>Nov 27, 2025</td>
+                <td>₹50,000</td>
+                <td>Variable</td>
+                <td><span class="badge badge-gold">Active</span></td>
+                <td><button class="btn btn-primary" style="padding:6px 12px">View</button></td>
+              </tr>
+              <tr>
+                <td>Rajesh Kumar</td>
+                <td>330-Day Gold Saver</td>
+                <td>Mar 10, 2025</td>
+                <td>Feb 03, 2026</td>
+                <td>₹20,000</td>
+                <td>Variable</td>
+                <td><span class="badge badge-gold">Active</span></td>
+                <td><button class="btn btn-primary" style="padding:6px 12px">View</button></td>
+              </tr>
+              <tr>
+                <td>Suresh Menon</td>
+                <td>11-Month Fixed</td>
+                <td>Dec 01, 2024</td>
+                <td>Nov 01, 2025</td>
+                <td>₹1,10,000</td>
+                <td>11/11</td>
+                <td><span class="badge badge-platinum">Matured</span></td>
+                <td><button class="btn btn-primary" style="padding:6px 12px">Process</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="./ASSETS/JS/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+#yaml  
+
+
+name: flutter_application_1
+description: "A Constitution/KYC Flutter project with JSON Localization."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.2.1
+
+  # Local Notifications (Replaces Firebase for offline scheduling)
+  flutter_local_notifications: ^19.5.0
+  timezone: ^0.10.0 # Match this with the override below
+  workmanager: ^0.9.0+3
+  
+  # Core packages
+  permission_handler: ^12.0.1
+  intl: ^0.20.2
+  cupertino_icons: ^1.0.6
+  file_picker: ^10.3.8
+  image_picker: ^1.1.2
+  mobile_scanner: ^7.1.4
+  shared_preferences: ^2.3.2
+  google_mlkit_text_recognition: ^0.15.0
+  pdf_render: ^1.4.12
+  #pdf_render_maintained: ^1.6.0
+
+  # Network & Launch
+  url_launcher: ^6.3.1
+  http: ^1.2.2
+
+  # State Management & Localization
+  provider: ^6.1.1
+
+  # Payment & UI
+  razorpay_flutter: ^1.4.0
+  font_awesome_flutter: ^10.7.0
+  cached_network_image: ^3.4.1
+  fluttertoast: ^8.2.8
+
+  # Path & File Management
+  path_provider: ^2.1.5
+  path: ^1.9.0
+  razorpay_web: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Assets configuration
+  assets:
+    - assets/lang/
+    - assets/ttj_logo.jpeg
+    - assets/banner1.webp
+    - assets/banner2.jpg
+    - assets/gold_coin.jpeg
+    - assets/silver_coin.jpeg
+
+# THIS MUST BE AT THE VERY BOTTOM AND NOT INDENTED
+dependency_overrides:
+  timezone: ^0.10.0

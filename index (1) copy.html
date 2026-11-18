@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loyalty Program — Admin Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand-bg: #c13584; /* page background (user provided) */
+      --brand-text: #6327af; /* primary font color (user provided) */
+      --white: #ffffff;
+      --muted: rgba(99,39,175,0.08);
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.08);
+      --accent: #f6d6ff;
+      --danger: #b00020;
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    /* Reset + base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(135deg, var(--brand-bg) 0%, #b52973 60%);
+      color:var(--brand-text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    /* Container */
+    .login-container{
+      width:100%;
+      max-width:920px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:32px;
+      align-items:center;
+    }
+
+    /* Left panel: marketing/brand */
+    .brand-panel{
+      padding:40px;
+      border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      backdrop-filter: blur(8px) saturate(120%);
+      box-shadow: var(--shadow);
+      color:var(--white);
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .brand-panel h2{margin:0;font-size:28px;letter-spacing:-0.02em;color:var(--white)}
+    .brand-panel p{margin:0;opacity:0.92;color:rgba(255,255,255,0.9)}
+
+    /* Right panel: login box */
+    .login-box{
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.90));
+      border-radius:16px;
+      padding:26px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+      border:1px solid rgba(99,39,175,0.06);
+    }
+
+    /* Header inside box */
+    .login-header{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    /* Logo area fix: center and align properly */
+    .logo-wrap{
+      width:72px;
+      height:72px;
+      border-radius:12px;
+      background: linear-gradient(135deg, rgba(99,39,175,0.08), rgba(193,53,132,0.06));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      overflow:hidden;
+      border:1px solid rgba(99,39,175,0.08);
+    }
+
+    .logo-wrap img{
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain; /* keeps aspect ratio and centers */
+      display:block;
+    }
+
+    .login-header .title{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .login-header h1{margin:0;font-size:18px;color:var(--brand-text)}
+    .login-header p{margin:0;font-size:13px;color:var(--brand-text);opacity:0.85}
+
+    .login-form{padding-top:6px}
+
+    .error-message{
+      background: #ffeef0;
+      color:var(--danger);
+      padding:10px 12px;
+      border-radius:10px;
+      font-size:13px;
+      margin-bottom:12px;
+      display:none;
+    }
+
+    .form-group{margin-bottom:16px}
+    label{display:block;font-size:13px;margin-bottom:8px;font-weight:600;color:var(--brand-text)}
+
+    input[type="text"],input[type="password"]{
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(99,39,175,0.12);
+      font-size:14px;
+      background:transparent;
+      outline:none;
+      transition:box-shadow .18s, border-color .18s, transform .12s;
+    }
+
+    input:focus{box-shadow:0 6px 18px rgba(99,39,175,0.06);border-color:rgba(99,39,175,0.22)}
+
+    .password-wrapper{position:relative}
+    .toggle-password{
+      position:absolute;right:12px;top:50%;transform:translateY(-50%);
+      cursor:pointer;font-size:18px;opacity:0.7;
+    }
+
+    .remember-forgot{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .remember-me{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--brand-text)}
+
+    .remember-me input{width:16px;height:16px}
+
+    .forgot-password{font-weight:700;font-size:13px;color:var(--brand-text);text-decoration:none}
+    .forgot-password:hover{text-decoration:underline}
+
+    .login-btn{
+      width:100%;padding:12px;border-radius:10px;border:0;font-weight:700;font-size:15px;
+      background: linear-gradient(90deg,var(--brand-text), #4c1f7b);
+      color:var(--white);cursor:pointer;box-shadow:0 8px 20px rgba(99,39,175,0.18);
+      transition:transform .14s, box-shadow .14s;
+    }
+
+    .login-btn:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(99,39,175,0.18)}
+
+    /* small helpers */
+    .muted{font-size:13px;color:rgba(99,39,175,0.6)}
+
+    /* responsive */
+    @media (max-width:900px){
+      .login-container{grid-template-columns:1fr;max-width:520px}
+      .brand-panel{order:2}
+      .login-box{order:1}
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <aside class="brand-panel">
+      <h2>Welcome back!</h2>
+      <p>Sign in to access the Loyalty Program admin portal — clean, secure, and built for speed.</p>
+      <div style="margin-top:auto;display:flex;gap:12px;align-items:center;opacity:0.95">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--brand-text);font-weight:700">LP</div>
+        <div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.9);font-weight:600">Loyalty Admin</div>
+          <div style="font-size:12px;opacity:0.9">Secure access & analytics</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="login-box" aria-labelledby="login-title">
+      <div class="login-header">
+        <div class="logo-wrap">
+          <!-- make sure the provided path is correct: ./ASSETS/image/ttj.png  -->
+          <img src="./ASSETS/image/ttj.png" alt="Loyalty logo" />
+        </div>
+        <div class="title">
+          <h1 id="login-title">Loyalty Program</h1>
+          <p>Admin Portal</p>
+        </div>
+      </div>
+
+      <div class="login-form">
+        <div class="error-message" id="errorMessage">Invalid credentials. Please try again.</div>
+
+        <form id="loginForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter username" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="password-wrapper">
+              <input type="password" id="password" placeholder="Enter password" required />
+              <span class="toggle-password" onclick="togglePassword()" aria-hidden="true">👁️</span>
+            </div>
+          </div>
+
+          <div class="remember-forgot">
+            <label class="remember-me">
+              <input type="checkbox" id="rememberMe" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="login-btn">Sign In</button>
+        </form>
+
+        <p style="margin-top:14px;text-align:center;font-size:13px;color:var(--brand-text);opacity:0.9">Need help? Contact <span class="muted">admin@company.com</span></p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function togglePassword(){
+      const p = document.getElementById('password');
+      p.type = p.type === 'password' ? 'text' : 'password';
+    }
+
+    function handleSubmit(e){
+      e.preventDefault();
+      // simple demo: show error box for invalid combo
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value;
+      const err = document.getElementById('errorMessage');
+      err.style.display = 'none';
+
+      // Replace this with real authentication call
+      if(u === 'admin' && p === 'admin123'){
+        err.style.display = 'none';
+        alert('Signed in — replace alert with real redirect');
+      } else {
+        err.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
